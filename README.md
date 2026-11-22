@@ -75,5 +75,5 @@ Python 3, pandas, NumPy, SciPy, statsmodels, seaborn, matplotlib, Jupyter Notebo
 
 ## Author
 
-**Kiru**: B.Tech Artificial Intelligence and Data Science, SKCET, Coimbatore
+**Kiruthiga**: B.Tech Artificial Intelligence and Data Science, SKCET, Coimbatore
 GitHub: [kiruthigar2008](https://github.com/kiruthigar2008)
