@@ -16,7 +16,6 @@ The classic `tips` dataset (244 restaurant bills), loaded through `seaborn`.
 |---|---|
 | `total_bill` | Bill amount (USD) |
 | `tip` | Tip amount (USD) |
-| `sex` | Sex of the bill payer |
 | `smoker` | Smoker in the party (Yes/No) |
 | `day` | Thur, Fri, Sat, Sun |
 | `time` | Lunch or Dinner |
@@ -30,7 +29,7 @@ The classic `tips` dataset (244 restaurant bills), loaded through `seaborn`.
 | Normality testing | Shapiro-Wilk, Kolmogorov-Smirnov, Lilliefors correction, Q-Q plots, log transform |
 | Two-sample tests | Welch's t-test, Mann-Whitney U, Levene's test, Cohen's d, rank-biserial correlation, 95% CI, bootstrap CI |
 | One-Way ANOVA | F-test, Kruskal-Wallis, Tukey HSD, eta-squared, residual diagnostics |
-| Two-Way ANOVA | Day × Sex with interaction (Type II sums of squares), Tukey HSD on cells, interaction plot |
+| Two-Way ANOVA | Day × Smoker with interaction (Type II sums of squares), Tukey HSD on cells, interaction plot |
 | Robustness | ANOVA repeated on log-transformed bill, Holm multiple-comparison correction |
 
 Every test documents its null and alternative hypotheses in markdown before the code.
@@ -40,10 +39,10 @@ Every test documents its null and alternative hypotheses in markdown before the 
 | Question | Result |
 |---|---|
 | Bill: Dinner vs Lunch | **Significant.** Dinner is about $3.63 higher (p ≈ 0.002). The only result that survives the Holm correction. |
-| Bill: Male vs Female | Significant before correction (p ≈ 0.019), small effect (d = 0.30). Not significant after Holm. |
+| Bill: Smoker vs Non-smoker | Not significant (p ≈ 0.20), small effect (d = 0.18). |
 | Tip %: Smoker vs Non-smoker | **No difference** (p ≈ 0.68, negligible effect). |
 | Bill across days (One-Way ANOVA) | Significant (p = 0.043), small effect (η² = 0.033). Sunday > Thursday on the log scale (Tukey p = 0.047). |
-| Day × Sex (Two-Way ANOVA) | No significant main effects or interaction (interaction p = 0.79). |
+| Day × Smoker (Two-Way ANOVA) | Day effect is significant (p = 0.027). Smoker status (p = 0.091) and the interaction (p = 0.79) are not. |
 
 Bills are right-skewed, so non-parametric tests were used alongside parametric ones. Both agreed on every two-sample decision.
 
@@ -70,7 +69,7 @@ Python 3, pandas, NumPy, SciPy, statsmodels, seaborn, matplotlib, Jupyter Notebo
 ## Limitations
 
 - Data come from one waiter at one restaurant, so results may not generalise.
-- The design is unbalanced and some day × sex cells are small.
+- The design is unbalanced and some day × smoker cells are small (for example, only 4 non-smoking parties on Friday).
 - The data are observational, so findings show association, not causation.
 
 ## Author
